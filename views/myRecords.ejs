@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+
+                <% data.forEach(ele=>{%>
+                    <div class="card">
+                        <div class="container">
+                    <h4><b>Country: <%= ele.country %>,<%= ele.countrycode %> </b></h4> 
+                    <p>Date: <%= ele.date %></p> 
+                    <form action="/details/<%= ele.id %>" method="GET">
+                      <input type="submit" value="view details">
+                    </form>
+                </div>
+            </div>
+                <%}) %>
+
+    </main>
+</body>
+</html>

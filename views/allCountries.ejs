@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+
+                <% data.forEach(ele=>{%>
+                    <div class="card">
+                        <div class="container">
+                    <h4><b>Country: <%= ele.Country %>,<%= ele.CountryCode %> </b></h4> 
+                    <p>Total Confirmed: <%= ele.TotalConfirmed %></p> 
+                    <p>Total Deaths: <%= ele.TotalDeaths %></p> 
+                    <p>Total Recovered: <%= ele.TotalRecovered %></p> 
+                    <p>Date: <%= ele.Date %></p> 
+                    <form action="/add" method="POST">
+                        <input type="text" name = 'Country' value="<%= ele.Country %>" hidden>
+                        <input type="text" name = 'CountryCode'  value="<%= ele.CountryCode %>" hidden>
+                        <input type="text"  name = 'TotalConfirmed' value="<%= ele.TotalConfirmed %>" hidden>
+                        <input type="text" name = 'TotalDeaths' value="<%= ele.TotalDeaths %>" hidden>
+                        <input type="text" name = 'TotalRecovered' value="<%= ele.TotalRecovered %>" hidden>
+                        <input type="text" name = 'Date' value="<%= ele.Date %>" hidden>
+                        <input type="submit" value= 'Add to my records'>
+                    </form>
+                </div>
+            </div>
+                <%}) %>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+
+                    <div class="card">
+                        <div class="container">
+                    <h4><b>Country: <%= data.country %>,<%= data.countrycode %> </b></h4> 
+                    <p>Total Confirmed: <%= data.totalconfirmed %></p> 
+                    <p>Total Deaths: <%= data.totaldeaths %></p> 
+                    <p>Total Recovered: <%= data.totalrecovered %></p> 
+                    <p>Date: <%= data.date %></p> 
+                    <form action="/delete/<%= data.id %>?_method=delete" method="POST">
+                        <input type="submit" value = 'Delete'>
+                    </form>
+                    <form action="/update" method="POST" hidden>
+                        <input type="text" name = 'Country' value="<%= data.country %>" hidden>
+                        <input type="text" name = 'CountryCode'  value="<%= data.countrycode %>" hidden>
+                        <input type="text"  name = 'TotalConfirmed' value="<%= data.totalconfirmed %>" hidden>
+                        <input type="text" name = 'TotalDeaths' value="<%= data.totaldeaths %>" hidden>
+                        <input type="text" name = 'TotalRecovered' value="<%= data.totalrecovered %>" hidden>
+                        <input type="text" name = 'Date' value="<%= data.date %>" hidden>
+                        <input type="submit" value= 'Add to my records'>
+                    </form>
+                </div>
+            </div>
+
+    </main>
+</body>
+</html>
