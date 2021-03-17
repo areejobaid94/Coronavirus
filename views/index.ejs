@@ -10,10 +10,12 @@
 <body>
     <%- include('header.ejs') %>
     <main>
-        <h1>Total Confirmed: <%=data.TotalConfirmed %></h1>
-        <h1>Total Deaths: <%=data.TotalDeaths %></h1>
-        <h1>Total Recovered: <%=data.TotalRecovered %></h1>
-        <form action="/search" method="POST">
+        <div id = 'all_cards'>
+            <h1 style="margin: 20px; font-size: 40px;">Total Confirmed: <%=data.TotalConfirmed %></h1>
+            <h1 style="margin: 20px; font-size: 40px;">Total Deaths: <%=data.TotalDeaths %></h1>
+            <h1 style="margin: 20px; font-size: 40px;">Total Recovered: <%=data.TotalRecovered %></h1>
+        </div>
+        <form action="/search" method="POST" style="margin-left: 35%;margin-top: 10%;">
             <input type="text" name="name" id="">
             <input type="date" name="from">
             <input type="date" name="to">
