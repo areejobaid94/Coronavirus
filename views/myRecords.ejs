@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
 <body>
+    <%- include('header.ejs') %>
     <main>
-
+        <% if(data.length){%>
+        <div id = 'all_cards'>
                 <% data.forEach(ele=>{%>
                     <div class="card">
+                        <img src="https://www.who.int/images/default-source/health-topics/health-financing/novelcoronavirus-optimized.tmb-1200v.jpg?Culture=en&sfvrsn=755458c4_8" alt="">
                         <div class="container">
                     <h4><b>Country: <%= ele.country %>,<%= ele.countrycode %> </b></h4> 
                     <p>Date: <%= ele.date %></p> 
@@ -20,7 +24,10 @@
                 </div>
             </div>
                 <%}) %>
-
+    </div>
+    <%}else{ %>
+        <h1>No Available Records</h1>
+    <%}%>
     </main>
 </body>
 </html>

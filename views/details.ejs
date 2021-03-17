@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
 <body>
+    <%- include('header.ejs') %>
     <main>
 
                     <div class="card">
+                        <img src="https://www.who.int/images/default-source/health-topics/health-financing/novelcoronavirus-optimized.tmb-1200v.jpg?Culture=en&sfvrsn=755458c4_8" alt="">
                         <div class="container">
                     <h4><b>Country: <%= data.country %>,<%= data.countrycode %> </b></h4> 
                     <p>Total Confirmed: <%= data.totalconfirmed %></p> 
