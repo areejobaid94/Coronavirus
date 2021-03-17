@@ -37,6 +37,9 @@ function deleteFromDB(req, res) {
     .query("DELETE FROM allCases WHERE ID = $1", [req.params.id])
     .then(() => {
       res.redirect("/myRecords");
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
 
@@ -45,14 +48,22 @@ function getDetails(req, res) {
     .query("SELECT * FROM allCases where id = $1", [req.params.id])
     .then((data) => {
       res.render("details", { data: data.rows[0] });
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
 
 function RenderMyRecords(req, res) {
-  return client.query("SELECT * FROM allCases").then((data) => {
-    console.log(data.rows);
-    res.render("myRecords", { data: data.rows });
-  });
+  return client
+    .query("SELECT * FROM allCases")
+    .then((data) => {
+      console.log(data.rows);
+      res.render("myRecords", { data: data.rows });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function addToDB(req, res) {
@@ -71,20 +82,32 @@ function addToDB(req, res) {
     )
     .then(() => {
       res.redirect("/myRecords");
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
 
 function getAll(req, res) {
-  return superAgent.get("https://api.covid19api.com/summary").then((data) => {
-    res.render("allCountries", { data: data.body.Countries });
-  });
+  return superAgent
+    .get("https://api.covid19api.com/summary")
+    .then((data) => {
+      res.render("allCountries", { data: data.body.Countries });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function renderHomePage(req, res) {
-  getTota().then((data) => {
-    console.log(data);
-    res.render("index", { data, data });
-  });
+  getTota()
+    .then((data) => {
+      console.log(data);
+      res.render("index", { data, data });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function searchForacases(req, res) {
@@ -95,6 +118,9 @@ function searchForacases(req, res) {
     .then((data) => {
       res.render("getCountryResult", { data: data.body });
       console.log(data.body);
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
 
@@ -103,6 +129,9 @@ function getTota() {
     .get("https://api.covid19api.com/world/total")
     .then((data) => {
       return data.body;
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
 
